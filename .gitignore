@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 .classpath
 .project
 .settings
 build
-=======
-settings.txt
-.project
-.classpath
-.build
-.settings
->>>>>>> refs/remotes/cleber/master
