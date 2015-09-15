@@ -1,42 +1,27 @@
 package br.senai.sc.ti2014n1.cleber.bi.model.dominio;
 
 public class User {
-	private long idUser;
-	private String titulo;
-	private String descricao;
-
-	public User() {
+	private Long id;
+	private String nome;
+	private String email;
+	
+	public Long getId() {
+		return id;
 	}
-
-	public User(long idUser, String titulo, String descricao) {
-		this.idUser = idUser;
-		this.titulo = titulo;
-		this.descricao = descricao;
+	public void setId(Long id) {
+		this.id = id;
 	}
-
-	public long getIdUser() {
-		return idUser;
+	public String getNome() {
+		return nome;
 	}
-
-	public void setIdUser(long idUser) {
-		this.idUser = idUser;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-
-	public String getTitulo() {
-		return titulo;
+	public String getEmail() {
+		return email;
 	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
 	
 }

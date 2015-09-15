@@ -10,30 +10,9 @@
 	<link href="css/estilo.css" rel="stylesheet" />
 </h:head>
 <h:body>
-		
-		<h2>Cadastro de Ideias</h2>
 
-		<h:form>
-			<h:messages />
-			<h:panelGrid columns="2" styleClass="panelGridCenter">
-				<h:outputLabel value="Titulo:" for="titulo_id" />
-				<p:inputText id="titulo_id" value="#{ideiaBean.ideia.titulo}"
-					required="true" requiredMessage="O titulo é obrigatório!" />
-
-				<h:outputLabel value="Descrição:"  />
-				<p:inputMask id="descricao_id" value="#{ideiaBean.ideia.descricao}"
-					required="true" requiredMessage="A descrição é obrigatória!" />
-
-				<h:commandButton value="Listar Ideias"
-					action="#{ideiaBean.voltar}" immediate="true" />
-
-				<h:commandButton value="Enviar" action="#{ideiaBean.salvar}" />
-
-				<h:commandLink immediate="true" value="Página Inicial"
-					action="index.xhtml" />
-
-			</h:panelGrid>
-		</h:form>
+	<h1>Banco de Ideias</h1>
+	<h:link outcome="userlist">Usuários</h:link>
 
 </h:body>
 </html>

@@ -10,8 +10,9 @@ public abstract class Dao {
 	public Connection getConnection() {
 		if (conn == null) {
 			try {
+				Class.forName("com.mysql.jdbc.Driver");
 				conn = DriverManager.getConnection(
-						"jbdc:mysql://localhost/bi_bd", "root", "root");
+						"jdbc:mysql://localhost/bi_db", "root", "root");
 				System.out.println("Conectou");
 			} catch (Exception e) {
 				e.printStackTrace();
