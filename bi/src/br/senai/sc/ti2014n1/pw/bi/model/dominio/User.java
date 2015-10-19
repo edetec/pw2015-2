@@ -1,4 +1,4 @@
-package br.senai.sc.ti2014n1.cleber.bi.model.dominio;
+package br.senai.sc.ti2014n1.pw.bi.model.dominio;
 
 public class User {
 	private Long id;

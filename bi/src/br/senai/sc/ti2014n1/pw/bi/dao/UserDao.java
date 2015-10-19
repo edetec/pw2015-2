@@ -1,4 +1,4 @@
-package br.senai.sc.ti2014n1.cleber.bi.dao;
+package br.senai.sc.ti2014n1.pw.bi.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.senai.sc.ti2014n1.cleber.bi.model.dominio.User;
+import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 
 public class UserDao extends Dao {
 

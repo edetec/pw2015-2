@@ -1,8 +1,8 @@
-package br.senai.sc.ti2014n1.cleber.bi;
+package br.senai.sc.ti2014n1.pw.bi;
 
-import br.senai.sc.ti2014n1.cleber.bi.dao.Dao;
-import br.senai.sc.ti2014n1.cleber.bi.model.UserRn;
-import br.senai.sc.ti2014n1.cleber.bi.model.dominio.User;
+import br.senai.sc.ti2014n1.pw.bi.dao.Dao;
+import br.senai.sc.ti2014n1.pw.bi.model.UserRn;
+import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 
 public class Main {
 

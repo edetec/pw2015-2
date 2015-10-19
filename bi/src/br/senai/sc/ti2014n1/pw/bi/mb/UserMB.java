@@ -1,12 +1,12 @@
-package br.senai.sc.ti2014n1.cleber.bi.mb;
+package br.senai.sc.ti2014n1.pw.bi.mb;
 
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
-import br.senai.sc.ti2014n1.cleber.bi.model.UserRn;
-import br.senai.sc.ti2014n1.cleber.bi.model.dominio.User;
+import br.senai.sc.ti2014n1.pw.bi.model.UserRn;
+import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 
 @ManagedBean
 public class UserMB {

@@ -1,4 +1,4 @@
-package br.senai.sc.ti2014n1.cleber.bi.dao;
+package br.senai.sc.ti2014n1.pw.bi.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

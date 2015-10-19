@@ -1,9 +1,9 @@
-package br.senai.sc.ti2014n1.cleber.bi.model;
+package br.senai.sc.ti2014n1.pw.bi.model;
 
 import java.util.List;
 
-import br.senai.sc.ti2014n1.cleber.bi.dao.UserDao;
-import br.senai.sc.ti2014n1.cleber.bi.model.dominio.User;
+import br.senai.sc.ti2014n1.pw.bi.dao.UserDao;
+import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 
 public class UserRn {
 	
