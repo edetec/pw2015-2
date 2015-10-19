@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title><ui:insert name="titulo">Banco de ideias</ui:insert></title>
+	<link href="css/estilo.css" rel="stylesheet" />
+	<style>
+body {
+	font-family: Verdana, sans-serif;
+}
+
+.container {
+	width: 90%;
+	margin: auto;
+	border: 1px solid black;
+}
+
+.banner {
+	height: 80px;
+	background-color: fuchsia;
+}
+
+.menu {
+	background-color: lime;
+	color: white;
+}
+
+.conteudo {
+	min-height: 380px;
+	padding: 4px;
+}
+
+.rodape {
+	text-align: center;
+	background-color: darkblue;
+	color: lightgrey;
+	padding: 4px;
+}
+
+.menu a {
+	padding: 2px 5px;
+	background-color: blue;
+	display: inline-block;
+	color: white;
+	margin: 2px;
+}
+
+.menu a:HOVER {
+	background-color: lightblue;
+	color: darkblue;
+}
+</style>
+</h:head>
+<h:body>
+	<div class="container">
+		<div class="banner"></div>
+		<div class="menu">
+			<h:link outcome="index">Inicio</h:link>
+			<h:link outcome="userlist">Usuarios</h:link>
+		</div>
+		<div class="conteudo">
+			<ui:insert name="conteudo">
+				<h1>Banco de Ideias</h1>
+			</ui:insert>
+		</div>
+		<div class="rodape">&copy; Todos os direitos reservados &reg;</div>
+	</div>
+</h:body>
+
+</html>
