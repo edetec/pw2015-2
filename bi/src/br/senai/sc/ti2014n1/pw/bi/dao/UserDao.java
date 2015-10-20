@@ -10,8 +10,8 @@ import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 
 public class UserDao extends Dao {
 
-	private final String INSERT = "INSERT INTO user (nome, email) values (?,?)";
-	private final String UPDATE = "UPDATE user SET nome = ?,  email = ? WHERE id = ?";
+	private final String INSERT = "INSERT INTO user (nome, email, senha) values (?,?,?)";
+	private final String UPDATE = "UPDATE user SET nome = ?,  email = ?, senha = ? WHERE id = ?";
 	private final String DELETE = "DELETE FROM user WHERE id = ?";
 	private final String SELECT = "SELECT * FROM user";
 	private final String SELECT_ID = "SELECT * FROM user WHERE id = ?";
@@ -29,6 +29,7 @@ public class UserDao extends Dao {
 			PreparedStatement ps = getConnection().prepareStatement(INSERT);
 			ps.setString(1, user.getNome());
 			ps.setString(2, user.getEmail());
+			ps.setString(3, user.getSenha());
 
 			ps.executeUpdate();
 
@@ -43,7 +44,8 @@ public class UserDao extends Dao {
 			PreparedStatement ps = getConnection().prepareStatement(UPDATE);
 			ps.setString(1, user.getNome());
 			ps.setString(2, user.getEmail());
-			ps.setLong(3, user.getId());
+			ps.setString(3, user.getSenha());
+			ps.setLong(4, user.getId());
 
 			ps.executeUpdate();
 
@@ -76,6 +78,7 @@ public class UserDao extends Dao {
 				user.setNome(rs.getString("nome"));
 				user.setEmail(rs.getString("email"));
 				user.setId(rs.getLong("id"));
+				user.setSenha("senha");
 				users.add(user);
 			}
 		} catch (SQLException e) {

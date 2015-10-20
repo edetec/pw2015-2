@@ -26,6 +26,10 @@
 					<h:outputLabel value="E-Mail: " />
 					<h:inputText value="#{userMB.user.email}" />
 				</div>
+				<div>
+					<h:outputLabel value="Senha: " />
+					<h:inputSecret value="#{userMB.user.senha}" />
+				</div>
 				<button type="reset">Restaurar</button>
 				<h:commandButton value="Salvar" action="#{userMB.salvar()}" />
 			</h:form>
