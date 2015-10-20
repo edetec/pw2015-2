@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition>
+	<style>
+		.form_login{
+			width: 180px;
+			float: right;
+		}
+	</style>
+	<div class="form_login">
+		<h:form>
+			<div>
+				<label>Usuário:</label>
+				<h:inputText />
+			</div>
+			<div>
+				<label>Senha:</label>
+				<h:inputSecret />
+				<button>Entrar</button>
+			</div>
+		</h:form>
+	</div>
+</ui:composition>
+</html>
