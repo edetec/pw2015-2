@@ -60,6 +60,14 @@ body {
 		<div class="menu">
 			<h:link outcome="index">Inicio</h:link>
 			<h:link outcome="userlist">Usuarios</h:link>
+			
+			<h:panelGroup rendered="#{sessaoMB.estaLogado()}">
+				<span style="float: right;"> 
+					<h:form>
+						<h:commandLink action="#{sessaoMB.sair()}">Sair</h:commandLink>
+					</h:form>
+				</span>
+			</h:panelGroup>
 		</div>
 		<div class="conteudo">
 			<ui:insert name="conteudo">

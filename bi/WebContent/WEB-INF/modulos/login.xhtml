@@ -7,6 +7,8 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition>
+<h:panelGroup rendered="#{! sessaoMB.estaLogado()}">
+
 	<style>
 		.form_login{
 			width: 180px;
@@ -16,15 +18,16 @@
 	<div class="form_login">
 		<h:form>
 			<div>
-				<label>Usuário:</label>
-				<h:inputText />
+				<label>E-mail:</label>
+				<h:inputText value="#{sessaoMB.usuarioForm.email}" />
 			</div>
 			<div>
 				<label>Senha:</label>
-				<h:inputSecret />
-				<button>Entrar</button>
+				<h:inputSecret value="#{sessaoMB.usuarioForm.senha}" />
 			</div>
+			<h:commandButton action="#{sessaoMB.entrar()}" value="Entrar" />
 		</h:form>
 	</div>
+	</h:panelGroup>
 </ui:composition>
 </html>
