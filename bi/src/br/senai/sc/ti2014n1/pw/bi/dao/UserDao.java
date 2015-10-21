@@ -74,11 +74,7 @@ public class UserDao extends Dao {
 			PreparedStatement ps = getConnection().prepareStatement(SELECT);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				User user = new User();
-				user.setNome(rs.getString("nome"));
-				user.setEmail(rs.getString("email"));
-				user.setId(rs.getLong("id"));
-				user.setSenha("senha");
+				User user = getUser(rs);
 				users.add(user);
 			}
 		} catch (SQLException e) {
@@ -88,16 +84,22 @@ public class UserDao extends Dao {
 		return users;
 	}
 
+	private User getUser(ResultSet rs) throws SQLException {
+		User user = getUser(rs);
+		user.setNome(rs.getString("nome"));
+		user.setEmail(rs.getString("email"));
+		user.setId(rs.getLong("id"));
+		user.setSenha(rs.getString("senha"));
+		return user;
+	}
+
 	public User buscarPorId(Long id) {
 		try {
 			PreparedStatement ps = getConnection().prepareStatement(SELECT_ID);
 			ps.setLong(1, id);
 			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				User user = new User();
-				user.setNome(rs.getString("nome"));
-				user.setEmail(rs.getString("email"));
-				user.setId(rs.getLong("id"));
+			if (rs.next()) {
+				User user = getUser(rs);
 				return user;
 			}
 		} catch (SQLException e) {
