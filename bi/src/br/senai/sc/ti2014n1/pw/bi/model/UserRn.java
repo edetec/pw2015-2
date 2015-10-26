@@ -37,4 +37,8 @@ public class UserRn {
 		dao.excluir(id);
 	}
 
+	public User buscaPorEmail(String email) {
+		return dao.buscaPorEmail(email);
+	}
+
 }

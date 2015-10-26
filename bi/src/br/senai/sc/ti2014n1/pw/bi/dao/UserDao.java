@@ -10,6 +10,7 @@ import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 
 public class UserDao extends Dao {
 
+	private static final String SELECT_EMAIL = "SELECT * FROM user WHERE email = ?";
 	private final String INSERT = "INSERT INTO user (nome, email, senha) values (?,?,?)";
 	private final String UPDATE = "UPDATE user SET nome = ?,  email = ?, senha = ? WHERE id = ?";
 	private final String DELETE = "DELETE FROM user WHERE id = ?";
@@ -74,7 +75,7 @@ public class UserDao extends Dao {
 			PreparedStatement ps = getConnection().prepareStatement(SELECT);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				User user = getUser(rs);
+				User user = parseUser(rs);
 				users.add(user);
 			}
 		} catch (SQLException e) {
@@ -84,8 +85,8 @@ public class UserDao extends Dao {
 		return users;
 	}
 
-	private User getUser(ResultSet rs) throws SQLException {
-		User user = getUser(rs);
+	private User parseUser(ResultSet rs) throws SQLException {
+		User user = new User();
 		user.setNome(rs.getString("nome"));
 		user.setEmail(rs.getString("email"));
 		user.setId(rs.getLong("id"));
@@ -99,12 +100,27 @@ public class UserDao extends Dao {
 			ps.setLong(1, id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				User user = getUser(rs);
+				User user = parseUser(rs);
 				return user;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Erro ao executar o select de user: " + e);
+		}
+		return null;
+	}
+
+	public User buscaPorEmail(String email) {
+		try {
+			PreparedStatement preparedStatement = getConnection().prepareStatement(SELECT_EMAIL);
+			preparedStatement.setString(1, email);
+			
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()){
+				return parseUser(resultSet);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return null;
 	}

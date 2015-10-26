@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import br.senai.sc.ti2014n1.pw.bi.model.UserRn;
 import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 
 @SessionScoped
@@ -27,9 +28,13 @@ public class SessaoMB {
 	}
 	
 	public String entrar(){
-		if(usuarioForm.getEmail().equalsIgnoreCase("ana@mail.com") 
-				&& usuarioForm.getSenha().equals("ana")){
-			usuarioLogado = usuarioForm;
+		UserRn rn = new UserRn();
+		User usuarioBanco = rn.buscaPorEmail(usuarioForm.getEmail());
+		
+		if(usuarioBanco != null 
+				&& usuarioForm.getEmail().equalsIgnoreCase(usuarioBanco.getEmail()) 
+				&& usuarioForm.getSenha().equals(usuarioBanco.getSenha())){
+			usuarioLogado = usuarioBanco;
 			return "/index";
 		}
 		return "";
