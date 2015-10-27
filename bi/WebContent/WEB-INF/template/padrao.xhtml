@@ -4,71 +4,64 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
 	<title><ui:insert name="titulo">Banco de ideias</ui:insert></title>
-	<link href="css/estilo.css" rel="stylesheet" />
-	<style>
-body {
-	font-family: Verdana, sans-serif;
-}
 
-.container {
-	width: 90%;
-	margin: auto;
-	border: 1px solid black;
-}
-
-.banner {
-	height: 80px;
-	background-color: fuchsia;
-}
-
-.menu {
-	background-color: lime;
-	color: white;
-}
-
-.conteudo {
-	min-height: 380px;
-	padding: 4px;
-}
-
-.rodape {
-	text-align: center;
-	background-color: darkblue;
-	color: lightgrey;
-	padding: 4px;
-}
-
-.menu a {
-	padding: 2px 5px;
-	background-color: blue;
-	display: inline-block;
-	color: white;
-	margin: 2px;
-}
-
-.menu a:HOVER {
-	background-color: lightblue;
-	color: darkblue;
-}
-</style>
+<!-- 	<h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css" /> -->
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+	<h:outputStylesheet library="css" name="padrao.css" />
 </h:head>
 <h:body>
 	<div class="container">
 		<div class="banner"></div>
+
 		<div class="menu">
-			<h:link outcome="/index">Inicio</h:link>
-			<h:link outcome="/admin/userlist">Usuarios</h:link>
-			
-			<h:panelGroup rendered="#{sessaoMB.estaLogado()}">
-				<span style="float: right;"> 
-					<h:form>
-						<h:commandLink action="#{sessaoMB.sair()}">Sair</h:commandLink>
-					</h:form>
-				</span>
-			</h:panelGroup>
+			<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">BI</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><h:link outcome="/index">Inicio</h:link></li>
+					</ul>
+					<h:panelGroup rendered="#{sessaoMB.estaLogado()}">
+						<h:form>
+							<ul class="nav navbar-nav navbar-right">
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-haspopup="true"
+									aria-expanded="false">Dropdown <span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><h:link outcome="/admin/userlist">Usuarios</h:link></li>
+										<li role="separator" class="divider"></li>
+										<li><h:commandLink action="#{sessaoMB.sair()}">Sair</h:commandLink></li>
+									</ul></li>
+							</ul>
+
+						</h:form>
+					</h:panelGroup>
+
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid --> </nav>
+
 		</div>
+
 		<div class="conteudo">
 			<ui:insert name="conteudo">
 				<h1>Banco de Ideias</h1>
@@ -76,6 +69,8 @@ body {
 		</div>
 		<div class="rodape">&copy; Todos os direitos reservados &reg;</div>
 	</div>
+	<h:outputScript library="js" name="jquery.min.js" />
+	<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
 </h:body>
 
 </html>
