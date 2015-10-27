@@ -42,7 +42,7 @@ public class SessaoMB {
 	
 	public String sair() {
 		usuarioLogado = null;
-		return "";
+		return "/index?faces-redirect=true";
 	}
 
 	public Boolean estaLogado(){

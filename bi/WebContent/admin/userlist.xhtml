@@ -7,9 +7,7 @@
 	<ui:define name="conteudo">
 		<h1>Usuarios</h1>
 		
-		<ui:include src="/WEB-INF/modulos/login.xhtml"/>
-		
-		<h:link outcome="userform">Adicionar</h:link>
+		<h:link outcome="/admin/userform">Adicionar</h:link>
 		<h:form>
 			<h:dataTable value="#{userMB.usuarios}" var="user">
 				<h:column>
