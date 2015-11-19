@@ -112,11 +112,12 @@ public class UserDao extends Dao {
 
 	public User buscaPorEmail(String email) {
 		try {
-			PreparedStatement preparedStatement = getConnection().prepareStatement(SELECT_EMAIL);
+			PreparedStatement preparedStatement = getConnection()
+					.prepareStatement(SELECT_EMAIL);
 			preparedStatement.setString(1, email);
-			
+
 			ResultSet resultSet = preparedStatement.executeQuery();
-			if(resultSet.next()){
+			if (resultSet.next()) {
 				return parseUser(resultSet);
 			}
 		} catch (SQLException e) {

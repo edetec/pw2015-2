@@ -10,12 +10,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		userRn = new UserRn();
-//		conectar();
-//		inserirUm();
-//		listarTodos();
-//		buscarPorId();
-//		editar();
-//		excluir();
+		// conectar();
+		// inserirUm();
+		// listarTodos();
+		// buscarPorId();
+		// editar();
+		// excluir();
 
 	}
 
@@ -46,7 +46,7 @@ public class Main {
 	}
 
 	private static void listarTodos() {
-		for(User user : userRn.listar()){
+		for (User user : userRn.listar()) {
 			mostrar(user);
 		}
 	}
@@ -61,7 +61,7 @@ public class Main {
 		User user = new User();
 		user.setNome("Maria");
 		user.setEmail("maria@email.com");
-		
+
 		try {
 			userRn.salvar(user);
 			System.out.println("Salvo");

@@ -6,22 +6,22 @@ import br.senai.sc.ti2014n1.pw.bi.dao.UserDao;
 import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 
 public class UserRn {
-	
+
 	private UserDao dao;
-	
+
 	public UserRn() {
 		dao = new UserDao();
 	}
 
 	public void salvar(User user) throws Exception {
 		if (user.getNome().trim().isEmpty()) {
-			throw new Exception("O nome é obrigatório!");
+			throw new IllegalArgumentException("O nome é obrigatório!");
 		}
 
 		if (user.getEmail().trim().isEmpty()) {
-			throw new Exception("O E-mail é obrigatório!");
+			throw new IllegalArgumentException("O E-mail é obrigatório!");
 		}
-		
+
 		dao.salvar(user);
 	}
 
