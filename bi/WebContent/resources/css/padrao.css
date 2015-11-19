@@ -1,3 +1,12 @@
 .conteudo{
 	min-height: 200px;
+	background-color: white;
 }
+
+a {
+    color: green;
+    text-decoration: none;
+}
+body{
+	background-image: url("#{resource['img/padrao_fundo.jpg']}");
+})

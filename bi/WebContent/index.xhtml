@@ -5,8 +5,12 @@
 
 <ui:composition template="/WEB-INF/template/padrao.xhtml">
 	<ui:define name="conteudo">
-		<h>Bem vindo!</h>
-		<ui:include src="/WEB-INF/modulos/login.xhtml" />
+		<h1>Bem vindo!</h1>
+		<h:graphicImage name="img/welcome.jpg" />
+		
+		<h:graphicImage styleClass="img-responsive" url="http://www.stickerstocker.co.uk/images/T8247.jpg" />
+		
+		<img src="#{resource['img/welcome.jpg']}" />
 	</ui:define>
 </ui:composition>
 </html>
