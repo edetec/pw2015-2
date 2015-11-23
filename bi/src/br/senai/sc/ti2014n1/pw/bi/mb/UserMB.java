@@ -4,14 +4,17 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.servlet.http.Part;
 
 import br.senai.sc.ti2014n1.pw.bi.model.UserRn;
 import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
+import br.senai.sc.ti2014n1.pw.bi.util.UploadImagemUtil;
 
 @ManagedBean
 public class UserMB {
 	private List<User> usuarios;
 	private User user;
+	private Part foto;
 	private UserRn rn;
 
 	@PostConstruct
@@ -35,12 +38,22 @@ public class UserMB {
 		return user;
 	}
 
+	public Part getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Part foto) {
+		this.foto = foto;
+	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
 
 	public String salvar() {
 		try {
+			String nomeFoto = UploadImagemUtil.copiar(foto, user.getFoto());
+			user.setFoto(nomeFoto);
 			rn.salvar(user);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,8 +64,12 @@ public class UserMB {
 
 	public String excluir(String idParam) {
 		Long id = Long.parseLong(idParam);
+		
+		User userAntigo = rn.buscarPorId(id);
+		
 		try {
 			rn.excluir(id);
+			UploadImagemUtil.remover(userAntigo.getFoto());
 			usuarios = null;
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -10,7 +10,7 @@
 			<h1>
 				Usuários <small>Novo usuário</small>
 			</h1>
-			<h:form>
+			<h:form enctype="multipart/form-data" >
 				<h:panelGroup rendered="#{not empty userMB.user.id}">
 					<div>
 						<h:outputLabel value="Código: " />
@@ -26,10 +26,19 @@
 					<h:outputLabel value="E-Mail: " />
 					<h:inputText value="#{userMB.user.email}" />
 				</div>
+				
 				<div>
 					<h:outputLabel value="Senha: " />
 					<h:inputSecret value="#{userMB.user.senha}" />
 				</div>
+				
+				<div>
+					<h:outputLabel value="Foto" />
+					<h:inputFile value="#{userMB.foto}" />
+					<h:graphicImage styleClass="img-responsive" name="img/upload/#{userMB.user.foto}" />
+					<h:inputHidden value="#{userMB.user.foto}" />
+				</div>
+				
 				<button type="reset">Restaurar</button>
 				<h:commandButton value="Salvar" action="#{userMB.salvar()}" />
 			</h:form>

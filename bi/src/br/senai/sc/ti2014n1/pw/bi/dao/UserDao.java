@@ -11,8 +11,8 @@ import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 public class UserDao extends Dao {
 
 	private static final String SELECT_EMAIL = "SELECT * FROM user WHERE email = ?";
-	private final String INSERT = "INSERT INTO user (nome, email, senha) values (?,?,?)";
-	private final String UPDATE = "UPDATE user SET nome = ?,  email = ?, senha = ? WHERE id = ?";
+	private final String INSERT = "INSERT INTO user (nome, email, senha, foto) values (?,?,?,?)";
+	private final String UPDATE = "UPDATE user SET nome = ?,  email = ?, senha = ?, foto = ? WHERE id = ?";
 	private final String DELETE = "DELETE FROM user WHERE id = ?";
 	private final String SELECT = "SELECT * FROM user";
 	private final String SELECT_ID = "SELECT * FROM user WHERE id = ?";
@@ -31,6 +31,7 @@ public class UserDao extends Dao {
 			ps.setString(1, user.getNome());
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getSenha());
+			ps.setString(4, user.getFoto());
 
 			ps.executeUpdate();
 
@@ -46,7 +47,8 @@ public class UserDao extends Dao {
 			ps.setString(1, user.getNome());
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getSenha());
-			ps.setLong(4, user.getId());
+			ps.setString(4, user.getFoto());
+			ps.setLong(5, user.getId());
 
 			ps.executeUpdate();
 
@@ -91,6 +93,7 @@ public class UserDao extends Dao {
 		user.setEmail(rs.getString("email"));
 		user.setId(rs.getLong("id"));
 		user.setSenha(rs.getString("senha"));
+		user.setFoto(rs.getString("foto"));
 		return user;
 	}
 

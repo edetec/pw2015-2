@@ -5,6 +5,7 @@ public class User {
 	private String nome;
 	private String email;
 	private String senha;
+	private String foto;
 
 	public Long getId() {
 		return id;
@@ -36,6 +37,14 @@ public class User {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 }
