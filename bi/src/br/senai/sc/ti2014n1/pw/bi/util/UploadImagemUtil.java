@@ -12,7 +12,6 @@ import javax.servlet.http.Part;
 
 public class UploadImagemUtil {
 
-	private static final String DIRETORIO_IMAGENS = "/resources/img/upload/";
 	private static final Map<String, String> TIPOS_PERMITIDOS = new HashMap<String, String>();
 
 	static {
@@ -52,7 +51,9 @@ public class UploadImagemUtil {
 	}
 
 	private static String getCaminhoAbsoluto(String nomeFoto) {
-		String caminhoRelativo = DIRETORIO_IMAGENS.concat(nomeFoto);
+		String diretorioFotos = FacesContext.getCurrentInstance()
+				.getExternalContext().getInitParameter("upload_path");
+		String caminhoRelativo = "/resources/" + diretorioFotos + nomeFoto;
 
 		ServletContext servletContext = (ServletContext) FacesContext
 				.getCurrentInstance().getExternalContext().getContext();

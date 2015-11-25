@@ -24,6 +24,10 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header"></f:facet>
+					<h:graphicImage styleClass="img-responsive" name="#{initParam['upload_path']}#{user.foto}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
 					<h:commandLink value="Editar" action="#{userMB.editar(user.id)}" />
 					
 					<h:commandLink value="X" action="#{userMB.excluir(user.id)}"

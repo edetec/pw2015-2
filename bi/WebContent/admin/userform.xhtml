@@ -35,7 +35,7 @@
 				<div>
 					<h:outputLabel value="Foto" />
 					<h:inputFile value="#{userMB.foto}" />
-					<h:graphicImage styleClass="img-responsive" name="img/upload/#{userMB.user.foto}" />
+					<h:graphicImage styleClass="img-responsive" name="#{initParam['upload_path']}#{userMB.user.foto}" />
 					<h:inputHidden value="#{userMB.user.foto}" />
 				</div>
 				

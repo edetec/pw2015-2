@@ -20,4 +20,10 @@
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
 
+	<!-- Parametros de upload -->
+	<context-param>
+		<param-name>upload_path</param-name>
+		<param-value>img/upload/</param-value>
+	</context-param>
+	
 </web-app>
