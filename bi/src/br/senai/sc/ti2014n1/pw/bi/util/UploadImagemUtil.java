@@ -53,6 +53,7 @@ public class UploadImagemUtil {
 	private static String getCaminhoAbsoluto(String nomeFoto) {
 		String diretorioFotos = FacesContext.getCurrentInstance()
 				.getExternalContext().getInitParameter("upload_path");
+		
 		String caminhoRelativo = "/resources/" + diretorioFotos + nomeFoto;
 
 		ServletContext servletContext = (ServletContext) FacesContext

@@ -21,8 +21,10 @@ public class UserRn {
 		if (user.getEmail().trim().isEmpty()) {
 			throw new IllegalArgumentException("O E-mail é obrigatório!");
 		}
+		// if(perfilRn.validar(user.getPerfil())){
 
 		dao.salvar(user);
+		// }
 	}
 
 	public List<User> listar() {

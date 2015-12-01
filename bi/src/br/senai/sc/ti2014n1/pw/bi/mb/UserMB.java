@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.servlet.http.Part;
 
 import br.senai.sc.ti2014n1.pw.bi.model.UserRn;
+import br.senai.sc.ti2014n1.pw.bi.model.dominio.Perfil;
 import br.senai.sc.ti2014n1.pw.bi.model.dominio.User;
 import br.senai.sc.ti2014n1.pw.bi.util.UploadImagemUtil;
 
@@ -21,6 +22,7 @@ public class UserMB {
 	public void init() {
 		rn = new UserRn();
 		user = new User();
+		user.setPerfil(new Perfil());
 	}
 
 	public List<User> getUsuarios() {
