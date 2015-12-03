@@ -25,5 +25,23 @@
 		<param-name>upload_path</param-name>
 		<param-value>img/upload/</param-value>
 	</context-param>
+
+	<!-- Parâmetros do banco de dados -->
+	<context-param>
+		<param-name>servidor</param-name>
+		<param-value>localhost</param-value>
+	</context-param>
+	<context-param>
+		<param-name>banco</param-name>
+		<param-value>bi_db</param-value>
+	</context-param>
+	<context-param>
+		<param-name>usuario</param-name>
+		<param-value>root</param-value>
+	</context-param>
+	<context-param>
+		<param-name>senha</param-name>
+		<param-value>root</param-value>
+	</context-param>
 	
 </web-app>
