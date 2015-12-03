@@ -50,4 +50,11 @@ public class SessaoMB {
 		return usuarioLogado != null;
 	}
 
+	public String getNomeUsuarioLogado() {
+		if(usuarioLogado != null){
+			return usuarioLogado.getNome();
+		}
+		return null;
+	}
+
 }

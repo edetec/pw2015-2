@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.servlet.http.Part;
 
 import br.senai.sc.ti2014n1.pw.bi.model.UserRn;
@@ -17,6 +18,9 @@ public class UserMB {
 	private User user;
 	private Part foto;
 	private UserRn rn;
+	
+	@ManagedProperty(value = "#{sessaoMB}")
+	private SessaoMB sessaoMB;
 
 	@PostConstruct
 	public void init() {
@@ -52,8 +56,17 @@ public class UserMB {
 		this.user = user;
 	}
 
+	public SessaoMB getSessaoMB() {
+		return sessaoMB;
+	}
+
+	public void setSessaoMB(SessaoMB sessaoMB) {
+		this.sessaoMB = sessaoMB;
+	}
+
 	public String salvar() {
 		try {
+			System.out.println("Usuário Logado: " + sessaoMB.getNomeUsuarioLogado());
 			String nomeFoto = UploadImagemUtil.copiar(foto, user.getFoto());
 			user.setFoto(nomeFoto);
 			rn.salvar(user);
